@@ -1,0 +1,15 @@
+#pineal_risk_warning{
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #1F2C51;
+    z-index: 10000;
+}
+
+#pineal_risk_warning_inner{
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+}
