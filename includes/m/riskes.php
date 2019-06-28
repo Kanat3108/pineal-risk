@@ -71,3 +71,10 @@
 		return $wpdb->query($query);
 	}
 
+	function riskes_check_lang(){
+		global $wpdb;
+		$table = $wpdb->prefix . 'pineal_risk';
+		$query = "SELECT code_risk FROM $table";
+		return $wpdb->get_results($query, ARRAY_A);
+	}
+
