@@ -84,20 +84,20 @@
 												<select type="text" name="code" id="wprisk_url" placeholder="" class="wprisk-text-input" required>
 													<?php 
 														foreach ($langs as $lang=>$value) {
-															if (!empty(riskes_check_lang())){
+															/*if (!empty(riskes_check_lang())){
 																$db_languages = riskes_check_lang();
 															 	foreach ($db_languages as $db_language) {
 															 		foreach ($db_language as $value) {
 															 			if ($value == $lang) {
 															 				echo '<option value="'.$lang.'" disabled>'.$lang.'</option>';
-															 			}elseif($lang == $code){
+															 			}else*/if($lang == $code){
 																			echo '<option value="'.$lang.'" selected>'.$lang.'</option>';
-																		} else{
+																		} else {
 															 				echo '<option value="'.$lang.'">'.$lang.'</option>';	
 															 			}
-															 		}
+															 		/*}
 																}
-															}
+															}*/
 														} 
 													 ?>
 												</select>
