@@ -6,10 +6,10 @@ Description: risk plugin
 Version: 1.5
 Author: Kanat Konyrbayev
 
-
 */
 
 
+// Check for updates
 require 'plugin-update-checker/plugin-update-checker.php';
 
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
@@ -17,15 +17,11 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'pineal-risk'
 );
-
-//Optional: If you're using a private repository, specify the access token like this:
-//$myUpdateChecker->setAuthentication('your-token-here');
-
-//Optional: Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('master');
-//$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 
+
+// Installing plugin, create database
 function pineal_risk_install(){
 	global $wpdb;
 
@@ -45,6 +41,7 @@ function pineal_risk_install(){
 	}
 }
 
+// Uninstall plugin
 function pineal_risk_delete(){
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'pineal_risk';
@@ -54,6 +51,7 @@ function pineal_risk_delete(){
 	delete_option('risk_on_page');
 }
 
+// Delete plugin
 function pineal_risk_uninstall(){
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'pineal_risk';
@@ -62,17 +60,19 @@ function pineal_risk_uninstall(){
 	delete_option('risk_on_page');
 }
 
+// Hooks
 register_activation_hook( __FILE__, 'pineal_risk_install');
 register_deactivation_hook( __FILE__, 'pineal_risk_uninstall');
 register_uninstall_hook(__FILE__, 'pineal_risk_delete');
 
 
+// Add to admin menu
 function riskes_admin_menu(){
 add_menu_page('Pineal Risk Warn', 'Pineal Risk Warn', 8, 'pineal_riskes', 'pineal_riskes_editor');
-//add_submenu_page('pineal_riskes','Add risk', 'Add risk', 8,'pineal_riskes_adding');
 }
 add_action('admin_menu', 'riskes_admin_menu');
 
+// Router
 function pineal_riskes_editor(){
 	switch ($_GET['c']) {
 		case 'add':
@@ -88,22 +88,18 @@ function pineal_riskes_editor(){
 	include_once("includes/$action.php");
 }
 
-
+// Include CSS files
 function risk_function() {
-	//ob_start();
 	wp_register_style( 'risk-style-1', '/wp-content/plugins/pineal-risk/includes/css/risk-style-1.css' );
 	wp_enqueue_style( 'risk-style-1' );
     include_once("includes/intro.php");
-    //return ob_get_clean();
-
 }
 add_action( 'wp_footer', 'risk_function');
 
-
+// Include JS files
 add_action( 'admin_enqueue_scripts', 'wptuts_add_color_picker' );
 function wptuts_add_color_picker( $hook ) {
- 
-    if( is_admin() ) { 
+ 	if( is_admin() ) { 
      
         // Add the color picker css file       
         wp_enqueue_style( 'wp-color-picker' ); 

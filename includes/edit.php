@@ -1,8 +1,6 @@
 <?php 
-	include_once('m/riskes.php');
-?>
+	include('m/riskes.php');
 
-<?php
 	
 	$id= (int)$_GET['id'];
 
@@ -33,9 +31,8 @@
 		$font = $risk['font_risk'];
 		$bg = $risk['bg_risk'];
 		$error = false;
-		echo $font;
-		echo $code;
 	}
+
 	$langs = icl_get_languages();
 	echo $font;
 ?>
@@ -86,14 +83,21 @@
 											<td>
 												<select type="text" name="code" id="wprisk_url" placeholder="" class="wprisk-text-input" required>
 													<?php 
-														foreach ($langs as $lang => $value) {
-															if($lang == $code){
-
-
-															echo '<option value="'.$lang.'" selected>'.$lang.'</option>';
-														} else{
-															echo '<option value="'.$lang.'">'.$lang.'</option>';
-														}
+														foreach ($langs as $lang=>$value) {
+															if (!empty(riskes_check_lang())){
+																$db_languages = riskes_check_lang();
+															 	foreach ($db_languages as $db_language) {
+															 		foreach ($db_language as $value) {
+															 			if ($value == $lang) {
+															 				echo '<option value="'.$lang.'" disabled>'.$lang.'</option>';
+															 			}elseif($lang == $code){
+																			echo '<option value="'.$lang.'" selected>'.$lang.'</option>';
+																		} else{
+															 				echo '<option value="'.$lang.'">'.$lang.'</option>';	
+															 			}
+															 		}
+																}
+															}
 														} 
 													 ?>
 												</select>
