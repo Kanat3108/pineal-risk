@@ -3,9 +3,8 @@
 Plugin Name: Pineal risk
 Plugin URI: 
 Description: risk plugin 
-Version: 1.6
+Version: 1.5
 Author: Kanat Konyrbayev
-
 */
 
 
