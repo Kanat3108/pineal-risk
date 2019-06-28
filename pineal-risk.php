@@ -10,6 +10,22 @@ Author: Kanat Konyrbayev
 */
 
 
+require 'plugin-update-checker/plugin-update-checker.php';
+
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/Kanat3108/pineal-risk/',
+	__FILE__,
+	'pineal-risk'
+);
+
+//Optional: If you're using a private repository, specify the access token like this:
+//$myUpdateChecker->setAuthentication('your-token-here');
+
+//Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+//$myUpdateChecker->getVcsApi()->enableReleaseAssets();
+
+
 function pineal_risk_install(){
 	global $wpdb;
 
@@ -97,19 +113,7 @@ function wptuts_add_color_picker( $hook ) {
     }
 }
 
-require 'plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://github.com/Kanat3108/pineal-risk/',
-	__FILE__,
-	'pineal-risk'
-);
 
-//Optional: If you're using a private repository, specify the access token like this:
-//$myUpdateChecker->setAuthentication('your-token-here');
-
-//Optional: Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('master');
-//$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 
 
