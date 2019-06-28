@@ -1,11 +1,12 @@
 <?php
-
 /*
 Plugin Name: Pineal risk
 Plugin URI: 
 Description: risk plugin 
 Version: 1.0
 Author: Kanat Konyrbayev
+
+
 */
 
 
@@ -98,7 +99,7 @@ function wptuts_add_color_picker( $hook ) {
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://github.com/Kanat3108/pineal-risk.git',
+	'https://github.com/Kanat3108/pineal-risk/',
 	__FILE__,
 	'pineal-risk'
 );
@@ -108,7 +109,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 
 //Optional: Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('master');
-
+//$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 
 
