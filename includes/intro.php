@@ -5,7 +5,7 @@ include_once('m/riskes.php');
 $riskes = riskes_current($code_risk);
 ?>
 
-<div id="pineal_risk_warning" style="background-color: <?=$riskes['bg_risk']?>;">
+<div id="pineal_risk_warning-wrap"><div id="pineal_risk_warning" style="background-color: <?=$riskes['bg_risk']?>;">
 	<div id="pineal_risk_warning_inner" style="color: <?=$riskes['font_risk']?>"><?php 
 	$text = stripcslashes($riskes['text_risk']);
 echo $text;
@@ -17,6 +17,7 @@ echo $text;
 
 	<div style="clear:both"></div>
 
+</div>
 </div>
 
 

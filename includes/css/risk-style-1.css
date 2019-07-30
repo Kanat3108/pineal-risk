@@ -1,3 +1,7 @@
+#pineal_risk_warning-wrap{
+    display: block;
+    height: 30px;
+}
 #pineal_risk_warning{
 	position: fixed;
     bottom: 0;

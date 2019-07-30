@@ -96,6 +96,15 @@ function risk_function() {
 }
 add_action( 'wp_footer', 'risk_function');
 
+
+
+function js_init() {
+    wp_enqueue_script( 'scripts-js', plugins_url( 'includes/js/scripts.js', __FILE__ ),false, true );
+}
+
+add_action('wp_enqueue_scripts','js_init');
+
+
 // Include JS files
 add_action( 'admin_enqueue_scripts', 'wptuts_add_color_picker' );
 function wptuts_add_color_picker( $hook ) {

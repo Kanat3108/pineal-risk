@@ -34,7 +34,6 @@
 	}
 
 	$langs = icl_get_languages();
-	echo $font;
 ?>
 
 <div class="wrap">
@@ -72,7 +71,7 @@
 					<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 						<div id="custom_meta_box" class="postbox">
 							<button type="button" class="handlediv" aria-expanded="true"><span class="screen-reader-text">Toggle panel: Feed Source Details</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-							<h2 class="hndle ui-sortable-handle"><span>risk Source Details</span></h2>
+							<h2 class="hndle ui-sortable-handle"><span>Risk Warning Details</span></h2>
 							<div class="inside">
 								<table class="form-table wprisk-form-table">
 									<tbody>
